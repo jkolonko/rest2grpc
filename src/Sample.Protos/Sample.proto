@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.sample";
+option java_outer_classname = "SampleProto";
+option objc_class_prefix = "HLW";
+
+package SampleProtos;
+
+message SampleRequest {
+    string name = 1;
+    int32 age = 2;
+    repeated string hobbies = 3;
+    map<string, string> bagOfTricks = 4;
+    Sentiment sentiment = 5;
+}
+
+message SampleResponse {
+    string greeting = 1;
+}
+
+service SampleService {
+    rpc DoSomething(SampleRequest) returns (SampleResponse);
+}
